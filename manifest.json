@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Booth Renamer",
+    "version": "1.0",
+    "description": "Boothからダウンロードしたファイルの自動リネーム、ルートフォルダに商品画像格納",
+    "permissions": [
+        "downloads",
+        "tabs",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://accounts.booth.pm/orders/*"
+    ],
+    "background": {
+        "service_worker": "rename.js",
+        "type": "module"
+    }
+}
