@@ -1,8 +1,9 @@
 {
     "manifest_version": 3,
     "name": "Booth Renamer",
-    "version": "1.0",
-    "description": "Boothからダウンロードしたファイルの自動リネーム、ルートフォルダに商品画像格納",
+    "version": "1.0.0",
+    "author": "Twitter@samehadamarud",
+    "description": "Boothからダウンロードしたファイルの商品名への自動リネーム",
     "permissions": [
         "downloads",
         "tabs",
@@ -12,7 +13,6 @@
         "https://accounts.booth.pm/orders/*"
     ],
     "background": {
-        "service_worker": "rename.js",
-        "type": "module"
+        "service_worker": "rename.js"
     }
 }

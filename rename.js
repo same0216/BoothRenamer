@@ -1,19 +1,19 @@
 chrome.downloads.onDeterminingFilename.addListener(function (item, suggest) {
-    let replaceFilename = "";
-    chrome.tabs.query({ active: true }, function (tabs) {
-        chrome.scripting.executeScript({
-            target: { tabId: tabs[0].id },
-            func: getContentName
-        }, (content) => {
-            let contentName = content[0].result
-            replaceFilename = contentName + ".zip"
-            console.log(replaceFilename);
-        });
-    })
-    console.log(replaceFilename);
-    suggest({ filename: replaceFilename });
+    if (item.url.indexOf("https://booth.pm") === 0) {
+        chrome.tabs.query({ active: true }, function (tabs) {
+            chrome.scripting.executeScript({
+                target: { tabId: tabs[0].id },
+                function: function () {
+                    return document.querySelector("a[class='nav']").innerHTML;
+                }
+            }, function (content) {
+                let contentName = content[0].result
+                let replaceFilename = contentName + ".zip"
+                suggest({ filename: replaceFilename });
+            });
+        })
+    } else {
+        suggest({ filename: item.filename });
+    }
+    return true;
 });
-
-function getContentName() {
-    return document.querySelector("a[class='nav']").innerHTML;
-}
