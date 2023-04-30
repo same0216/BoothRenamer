@@ -10,7 +10,8 @@
         "scripting"
     ],
     "host_permissions": [
-        "https://accounts.booth.pm/orders/*"
+        "https://accounts.booth.pm/orders/*",
+        "https://booth.pm/gifts/*"
     ],
     "background": {
         "service_worker": "rename.js"
