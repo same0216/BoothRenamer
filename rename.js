@@ -14,11 +14,22 @@ chrome.downloads.onDeterminingFilename.addListener(function (item, suggest) {
                     let replaceFilename = contentName + ".zip"
                     suggest({ filename: replaceFilename });
                 });
-            } else {
+            } else if(tabs[0].url.indexOf("https://accounts.booth.pm/gifts") === 0) {
                 chrome.scripting.executeScript({
                     target: { tabId: tabs[0].id },
                     function: function () {
                         return document.querySelector("div[class='text-black typograply-16 font-bold']").innerHTML;
+                    }
+                }, function (content) {
+                    let contentName = content[0].result
+                    let replaceFilename = contentName + ".zip"
+                    suggest({ filename: replaceFilename });
+                });
+            } else {
+                chrome.scripting.executeScript({
+                    target: { tabId: tabs[0].id },
+                    function: function () {
+                        return document.querySelector("h2[class='font-bold leading-[32px] m-0 text-[24px]']").innerHTML;
                     }
                 }, function (content) {
                     let contentName = content[0].result
