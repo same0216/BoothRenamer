@@ -14,7 +14,7 @@ chrome.downloads.onDeterminingFilename.addListener(function (item, suggest) {
                     let replaceFilename = contentName + ".zip"
                     suggest({ filename: replaceFilename });
                 });
-            } else if(tabs[0].url.indexOf("https://accounts.booth.pm/gifts") === 0) {
+            } else if(tabs[0].url.indexOf("https://booth.pm/gifts") === 0) {
                 chrome.scripting.executeScript({
                     target: { tabId: tabs[0].id },
                     function: function () {
