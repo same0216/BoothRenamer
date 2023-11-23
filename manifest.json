@@ -1,19 +1,15 @@
 {
-    "manifest_version": 3,
-    "name": "Booth Renamer",
-    "version": "1.0.3",
-    "author": "Twitter@samehadamarud",
-    "description": "Boothからダウンロードしたファイルの商品名への自動リネーム",
-    "permissions": [
-        "downloads",
-        "tabs",
-        "scripting"
-    ],
-    "host_permissions": [
-        "https://accounts.booth.pm/orders/*",
-        "https://booth.pm/gifts/*"
-    ],
-    "background": {
-        "service_worker": "rename.js"
-    }
+  "manifest_version": 3,
+  "name": "Booth Renamer",
+  "version": "1.0.3",
+  "author": "Twitter@samehadamarud",
+  "description": "Boothからダウンロードしたファイルの商品名への自動リネーム",
+  "permissions": ["downloads", "tabs", "scripting"],
+  "host_permissions": [
+    "https://accounts.booth.pm/orders/*",
+    "https://booth.pm/gifts/*"
+  ],
+  "background": {
+    "service_worker": "rename.js"
+  }
 }
